@@ -16,11 +16,37 @@ router.get('/', (req, res) => {
 // @desc Create a work experience
 // @access Public
 router.post('/', (req, res) => {
-  console.log(req)
-  // const newWorkExperience = new WorkExperience({
+  const {
+    body: {
+      job_position: jobPosition,
+      company_name: companyName,
+      company_address: companyAddress,
+      start_date: startDate,
+      end_date: endDate,
+      is_current_work: isCurrentWork,
+      description,
+    },
+  } = req
 
-  // })
+  const newWorkExperience = new WorkExperience({
+    jobPosition,
+    companyName,
+    companyAddress,
+    startDate,
+    endDate,
+    isCurrentWork,
+    description,
+  })
+
+  newWorkExperience.save().then(workExperience => res.json(workExperience))
 })
+
+router.delete('/:id', (req, res) => {
+  WorkExperience.findById(req.params.id)
+    .then(workExperience => workExperience.remove().then(() => res.json({ success: true })))
+    .catch(err => res.status(404).json({ success: false }))
+})
+
 
 
 export default router
