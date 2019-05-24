@@ -39,9 +39,17 @@ export default {
       .then(workExperiences => res.json(workExperiences))
   },
 
+  update: (req, res) => {
+    WorkExperience.find()
+      .then(workExperiences => {
+
+      })
+      .catch(err => res.status(404).json({ success: false, result: err }))
+  },
+
   delete: (req, res) => {
     WorkExperience.findById(req.params.id)
       .then(workExperience => workExperience.remove().then(() => res.json({ success: true })))
-      .catch(err => res.status(404).json({ success: false }))
+      .catch(err => res.status(404).json({ success: false, result: err }))
   }
 }

@@ -16,6 +16,8 @@ router.get('/', WorkExperienceController.read)
 // @access Public
 router.post('/', WorkExperienceController.create)
 
+router.put('/', WorkExperienceController.update)
+
 // @route DELETE api/work_experiences
 // @desc Delete a work experience
 // @access Public
