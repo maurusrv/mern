@@ -1,8 +1,12 @@
+// Core
 import express from 'express'
+
+// Models
 import WorkExperience from '../../models/WorkExperience'
 
 // Controllers
 import WorkExperienceController from '../../controllers/WorkExperienceController'
+
 
 const router = express.Router()
 
@@ -25,6 +29,7 @@ router.put('/', WorkExperienceController.update)
 // @desc Delete a work experience
 // @access Public
 router.delete('/:id', WorkExperienceController.delete)
+
 
 export default router
 
