@@ -6,9 +6,11 @@ import bodyParser from 'body-parser'
 // DB Config
 import { mongoURI } from './config/keys'
 
-// API
-import workExperiences from './routes/api/workExperiences'
+// Routes
+import work_experiences from './routes/api/work_experiences'
 
+
+// Database
 mongoose.connect(mongoURI, { useNewUrlParser: true })
   .then(() => console.log('MongoDB connected...'))
   .catch(err => console.log(err))
@@ -16,11 +18,12 @@ mongoose.connect(mongoURI, { useNewUrlParser: true })
 const port = process.env.PORT || 5376
 const app = express()
 
-// body-parser middleware
+// Middleware
 app.use(bodyParser.json())
 
-// use routes
-app.use('/api/workExperiences', workExperiences)
+// Routes
+app.use('/api/work_experiences', work_experiences)
+// app.use('/api/workExperiences', workExperiences)
 
 
 app.listen(port, () => console.log(`Server started on port ${port}`))
