@@ -2,9 +2,12 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
+import { config } from 'dotenv'
 
 // Routes
 import work_experiences from './routes/api/work_experiences'
+
+config()
 
 // DB Config
 const mongoURI = process.env.MONGO_URI
