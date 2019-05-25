@@ -7,10 +7,10 @@ import { config } from 'dotenv'
 // Routes
 import work_experiences from './routes/api/work_experiences'
 
+// Initialize environment variables
 config()
 
-// DB Config
-const mongoURI = process.env.MONGO_URI
+const mongoURI = process.env.MONGODB_URI
 
 // Database
 mongoose.connect(mongoURI, { useNewUrlParser: true })
