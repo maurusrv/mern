@@ -1,15 +1,15 @@
 import mongoose from 'mongoose'
 
 const WorkExperienceSchema = new mongoose.Schema({
-  jobPosition: String,
-  companyName: String,
-  companyAddress: String,
-  startDate: Date,
-  endDate: Date,
-  isCurrentWork: Boolean,
+  job_position: String,
+  company_name: String,
+  company_address: String,
+  start_date: Date,
+  end_date: Date,
+  is_current_work: Boolean,
   description: String,
 })
 
-const WorkExperience = mongoose.model('workExperience', WorkExperienceSchema)
+const WorkExperience = mongoose.model('work_experience', WorkExperienceSchema)
 
 export default WorkExperience

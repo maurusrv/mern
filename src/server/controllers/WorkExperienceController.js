@@ -5,23 +5,23 @@ export default {
   create: (req, res) => {
     const {
       body: {
-        job_position: jobPosition,
-        company_name: companyName,
-        company_address: companyAddress,
-        start_date: startDate,
-        end_date: endDate,
-        is_current_work: isCurrentWork,
+        job_position,
+        company_name,
+        company_address,
+        start_date,
+        end_date,
+        is_current_work,
         description,
       },
     } = req
 
     const newWorkExperience = new WorkExperience({
-      jobPosition,
-      companyName,
-      companyAddress,
-      startDate,
-      endDate,
-      isCurrentWork,
+      job_position,
+      company_name,
+      company_address,
+      start_date,
+      end_date,
+      is_current_work,
       description,
     })
 
@@ -40,10 +40,29 @@ export default {
   },
 
   update: (req, res) => {
-    WorkExperience.find()
-      .then(workExperiences => {
+    const {
+      params: { id },
+      body: {
+        job_position,
+        company_name,
+        company_address,
+        start_date,
+        end_date,
+        is_current_work,
+        description,
+      },
+    } = req
 
-      })
+    WorkExperience.findById(id)
+      .then(workExperiences => workExperiences.updateOne({
+        job_position,
+        company_name,
+        company_address,
+        start_date,
+        end_date,
+        is_current_work,
+        description,
+      }).then(() => res.json({ success: true })))
       .catch(err => res.status(404).json({ success: false, result: err }))
   },
 
