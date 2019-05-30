@@ -30,6 +30,6 @@ app.use(bodyParser.json())
 
 // Routes
 app.use('/api/v1/work_experiences', work_experiences)
-app.use('/api/v1/education', 'education')
+app.use('/api/v1/education', education)
 
 app.listen(port, () => console.log(`Server started on port ${port}`))
