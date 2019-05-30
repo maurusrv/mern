@@ -7,6 +7,7 @@ import { config } from 'dotenv'
 
 // Routes
 import work_experiences from './routes/api/v1/work_experiences'
+import education from './routes/api/v1/education'
 
 // Initialize environment variables
 config()
@@ -29,6 +30,6 @@ app.use(bodyParser.json())
 
 // Routes
 app.use('/api/v1/work_experiences', work_experiences)
-
+app.use('/api/v1/education', 'education')
 
 app.listen(port, () => console.log(`Server started on port ${port}`))
